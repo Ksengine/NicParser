@@ -3,7 +3,7 @@
 #
 #  nicparser.py
 #
-#  Copyright 2020 Kavindu Santhusa <Ksengine>
+#  Copyright 2020 Kavindu Santhusa <kavindu@orangepiplus>
 #
 from datetime import datetime
 import re
@@ -29,12 +29,16 @@ def NICParser(nic):
         date_time = datetime.strptime('{0},{1}'.format(match, year), '%j,%Y')
     except ValueError:
         raise ValueError('Birth date not within range.')
+    try:
+        special_letter=matches.group(5)
+    except IndexError:
+        special_letter=None
     return Struct(birth_year=int(year),
                   birth_date=date_time,
                   gender=gender,
                   serial_number=int(matches.group(3)),
                   check_digit=int(matches.group(4)),
-                  special_letter=matches.group(5) if matches.group(5)
-                  and matches.group(5) not in '1234567890' else None,
+                  special_letter=special_letter if special_letter
+                  and special_letter not in '1234567890' else None,
                   id_type=_type,
-                  can_vote=matches.group(5) and matches.group(5) == 'v')
+                  can_vote=special_letter and special_letter == 'v')
