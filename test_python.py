@@ -1,3 +1,7 @@
+from nicparser import NICParser
+from datetime import datetime
+
+
 def test_basic():
     numbers = {
         '199136578548': {
