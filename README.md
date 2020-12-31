@@ -1,3 +1,4 @@
+
 # NicParser
 
 [![GitHub issues](https://img.shields.io/github/issues/Ksengine/NicParser?logo=github&style=for-the-badge)](https://github.com/Ksengine/NicParser/issues)
@@ -72,4 +73,92 @@ eg:-
 result = NICParser('721245677v')
 ```
 result has following attributes.
-- `birth_date` - birth day of 
+- `birth_date` - birth day of NIC number owner. as `datetime.datetime` object.
+   ```python
+  print(result.birth_date)
+  ```
+  `datetime.datetime` object
+  - `datetime.year`
+  Get the birth year of NIC owner. Same to the `birth_year` attribute of result.
+     ```python
+    print(result.birth_date.year)
+     ```
+  - `datetime.month`
+Get the month of birth of NIC owner. Returns integer (`int`).
+     ```python
+    monthnames = [None, "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"]
+    print(monthnames[result.birth_date.month])
+     ```
+  - `datetime.day`
+  Between 1 and the number of days in the given month of the given year.
+     ```python
+    print(result.birth_date.day)
+     ```
+  - `date.weekday()`
+  Return the day of the week as an integer, where Monday is 0 and Sunday is 6. For example, `result.birth_date.weekday()  ==  2`, a Wednesday. See also `isoweekday()`.
+     ```python
+    daynames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    print(daynames[result.birth_date.weekday()])
+     ```
+  - `date.isoweekday()`
+  Return the day of the week as an integer, where Monday is 1 and Sunday is 7. For example, `date(2002,  12,  4).isoweekday()  ==  3`, a Wednesday. See also `weekday()`.
+     ```python
+    daynames = [None, "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    print(daynames[result.birth_date.weekday()])
+     ```
+  for more info - [Python Docs]([https://docs.python.org/3/library/datetime.html#datetime-objects](https://docs.python.org/3/library/datetime.html#datetime-objects))
+
+- `birth_year` - Get the birth year of NIC owner. Same to the `birth_date.year` attribute of result. Returns integer(`int`).
+  ```python
+  print(result.birth_year)
+  ```
+
+- `can_vote` - eligibility of the NIC owner to vote in local area as boolean(`bool`). `True` means can and `False` means can't.
+  ```python
+  print(result.can_vote)
+  ```
+
+- `check_digit` - Single digit.
+  ```python
+  print(result.check_digit)
+  ```
+
+- `gender` - Gender of NIC owner as boolean(`bool`). `True` means gender is male and `False` means gender is female.
+  ```python
+  print(result.gender)
+  ```
+- `serial_number` - Serial number of the issued day as string(`str`).
+  ```python
+  print(result.serial_number)
+  ```
+  > Note: Don't convert serial number to integer(`int`). It makes `0735` same to `0735`.
+
+- `special_letter` - The final letter of old type. NIC numbers. It is generally a 'V' which indicates that the holder is eligible to vote in the area. In some cases the it can be 'X' which usually indicates the holder is not eligible to vote; possibly because they were not permanent residents of Sri Lanka when applying for an NIC. See also `can_vote`. `special_letter` is always capitalized. If no special letter, it is `None`. So it is always `None` for new NIC numbers.
+  ```python
+  print(result.special_letter)
+  ```
+- `id_type` - Type of the NIC number.
+  - New(`True`) - NIC number issued from 1 January 2016.
+  - Old(`False`) - NIC number issued before 1 January 2016.
+  ```python
+  print(result.id_type)
+  ```
+## Roadmap
+
+See the  [open issues](issues)  for a list of proposed features (and known issues).
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are  **greatly appreciated**. We specially accepts new language implementations(NICParser in java, c, ect). Even giving a star, opening issue or sharing are great contributions.
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+_git commands are placed in brackets for command line git users_
+## License
+
+Distributed under the MIT License. See  [`LICENSE`](LICENSE)  for more information.
