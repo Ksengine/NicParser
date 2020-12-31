@@ -1,6 +1,7 @@
 
 # NicParser
 
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ksengine/nicparser/Python%20package/main?logo=github&style=for-the-badge)
 [![GitHub issues](https://img.shields.io/github/issues/Ksengine/NicParser?logo=github&style=for-the-badge)](https://github.com/Ksengine/NicParser/issues)
 [![GitHub forks](https://img.shields.io/github/forks/Ksengine/NicParser?logo=github&style=for-the-badge)](https://github.com/Ksengine/NicParser/network)
 [![GitHub stars](https://img.shields.io/github/stars/Ksengine/NicParser?logo=github&style=for-the-badge)](https://github.com/Ksengine/NicParser/stargazers)
