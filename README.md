@@ -40,12 +40,12 @@ nic = '721245677v'
 parsed_nic = NICParser(nic)
 print('birthday: ' + str(parsed_nic.birth_date))
 print('birth year: ' + str(parsed_nic.birth_year))
-print('can vote: ' + 'Yes' if parsed_nic.can_vote else 'No')
+print('can vote: ' + ('Yes' if parsed_nic.can_vote else 'No'))
 print('check digit' + str(parsed_nic.check_digit))
-print('gender: ' + 'Male' if parsed_nic.gender else 'Female')
+print('gender: ' + ('Male' if parsed_nic.gender else 'Female'))
 print('serial number: ' + parsed_nic.serial_number)
 print('special letter: ' + parsed_nic.special_letter)
-print('is Id old or new?: ' + 'New' if parsed_nic.id_type else 'Old')
+print('is Id old or new?: ' + ('New' if parsed_nic.id_type else 'Old'))
 ```
 for Python 2
 ```python
@@ -57,12 +57,12 @@ nic = '721245677v'
 parsed_nic = NICParser(nic)
 print 'birthday: ' + str(parsed_nic.birth_date)
 print 'birth year: ' + str(parsed_nic.birth_year)
-print 'can vote: ' + 'Yes' if parsed_nic.can_vote else 'No'
+print 'can vote: ' + ('Yes' if parsed_nic.can_vote else 'No')
 print 'check digit' + str(parsed_nic.check_digit)
-print 'gender: ' + 'Male' if parsed_nic.gender else 'Female'
+print 'gender: ' + ('Male' if parsed_nic.gender else 'Female')
 print 'serial number: ' + parsed_nic.serial_number
 print 'special letter: ' + parsed_nic.special_letter
-print 'is Id old or new?: ' + 'New' if parsed_nic.id_type else 'Old'
+print 'is Id old or new?: ' + ('New' if parsed_nic.id_type else 'Old')
 ```
 
 ## Usage
